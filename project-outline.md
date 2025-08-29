@@ -1,5 +1,3 @@
-# Tenant Receipt & Settlement Flow
-
 ## Project Goals
 - Automate tenant payment processing to reduce manual reconciliation.  
 - Ensure accurate matching between tenant receipts and settlement reports.  

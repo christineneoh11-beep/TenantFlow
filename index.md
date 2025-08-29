@@ -1,6 +1,6 @@
 ---
 title: TenantFlow Project Outline
-layoutL: default
+layout: default
 ---
 
 {% include_relative project-outline.md %}

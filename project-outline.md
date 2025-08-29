@@ -24,6 +24,7 @@
 - System compares receipts with settlement report (date, amount, time).  
 *(This process is formally called **Payment Reconciliation**.)*
 - Add status column → **Matched / Mismatched**.
+- System appends a new **Status** column to the existing settlement Excel file, marking each row as **Matched** or **Mismatched**.
 
 ---
 

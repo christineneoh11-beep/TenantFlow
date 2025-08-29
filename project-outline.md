@@ -1,4 +1,4 @@
-## Project Goals
+## Project Outline
 - Automate tenant payment processing to reduce manual reconciliation.  
 - Ensure accurate matching between tenant receipts and settlement reports.  
 - Improve efficiency in generating digital invoices.  

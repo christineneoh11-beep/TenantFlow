@@ -2,25 +2,21 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy csproj and restore dependencies
+# Copy sln and csproj files
 COPY *.sln .
-COPY TenantFlow.Web/*.csproj ./TenantFlow/
-RUN dotnet restore
+COPY TenantFlow.Web.csproj ./
+RUN dotnet restore TenantFlow.Web.csproj
 
 # Copy the rest of the code
 COPY . .
-WORKDIR /src/TenantFlow
+WORKDIR /src
+RUN dotnet publish TenantFlow.Web.csproj -c Release -o /app/publish
 
-# Publish the app
-RUN dotnet publish -c Release -o /app/publish
-
-# Stage 2: Build runtime image
+# Stage 2: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
 
-# Expose port for Render
 EXPOSE 8080
 
-# Run the app
-ENTRYPOINT ["dotnet", "TenantFlow.dll"]
+ENTRYPOINT ["dotnet", "TenantFlow.Web.dll"]
